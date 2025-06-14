@@ -1,10 +1,21 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  // Use static export for minimal server requirements
   output: "standalone",
-  assetPrefix:
-    process.env.NODE_ENV === "production" ? "https://pivotnode.net" : "",
+
+  // Reduce bundle size
+  compress: true,
+
+  // Optimize images
+  images: {
+    unoptimized: true, // Disable image optimization to save memory
+  },
+
+  // Reduce memory usage during build
+  experimental: {
+    workerThreads: false,
+  },
 };
 
 export default nextConfig;
