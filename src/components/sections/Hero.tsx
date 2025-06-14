@@ -31,22 +31,23 @@ export default function Hero() {
         <div className="grid md:grid-cols-2 gap-16 items-center">
           <div className="text-center md:text-left">
             <h1 className="text-5xl md:text-6xl font-black leading-tight mb-6 bg-gradient-to-r from-white via-[#8b5cf6] to-[#06b6d4] bg-clip-text text-transparent animate-fade-in-up">
-              Premium Hosting Solutions
+              Cloud Infrastructure That Grows With You
             </h1>
             <p
               className="text-xl text-gray-300 mb-10 animate-fade-in-up"
               style={{ animationDelay: "0.2s" }}
             >
-              Experience lightning-fast, secure, and reliable hosting services
-              that scale with your business. From shared hosting to enterprise
-              solutions, we've got you covered.
+              Deploy your applications with confidence using our
+              enterprise-grade infrastructure. Experience hosting services that
+              scale with your business, backed by 24/7 expert support and
+              cutting-edge technology.
             </p>
             <div
               className="flex flex-col sm:flex-row gap-5 justify-center md:justify-start animate-fade-in-up"
               style={{ animationDelay: "0.4s" }}
             >
               <Link href="#services" className="btn btn-primary">
-                Get Started
+                Try Free VPS
               </Link>
               <Link href="#features" className="btn btn-secondary">
                 Learn More

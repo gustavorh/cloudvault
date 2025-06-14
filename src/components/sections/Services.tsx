@@ -67,7 +67,7 @@ export default function Services() {
       <div className="container">
         <div className="text-center mb-20">
           <h2 className="text-4xl md:text-5xl font-extrabold mb-5 bg-gradient-to-r from-white to-[#8b5cf6] bg-clip-text text-transparent">
-            Our Hosting Services
+            Our Services
           </h2>
           <p className="text-xl text-gray-300 max-w-2xl mx-auto">
             Choose from our comprehensive range of hosting solutions designed to

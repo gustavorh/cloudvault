@@ -1,36 +1,60 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# CloudVault Deployment Guide
 
-## Getting Started
+This guide will walk you through the deployment process of the CloudVault application.
 
-First, run the development server:
+## Environment Setup
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+1. Create a `.env` file in the root directory with the following variables:
+
+```env
+# Database Configuration
+DB_HOST=your_database_host
+DB_PORT=3306
+DB_USER=your_database_user
+DB_PASSWORD=your_database_password
+DB_NAME=your_database_name
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Database Migration Process
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+The application uses Drizzle ORM for database management. Follow these steps to set up and update your database:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. **Generate Migration**
 
-## Learn More
+   ```bash
+   npm run drizzle-kit generate
+   ```
 
-To learn more about Next.js, take a look at the following resources:
+   This command will:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+   - Read your schema from `src/db/schema.ts`
+   - Generate migration files in the `drizzle` directory
+   - Create SQL files with the necessary changes
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+2. **Push Changes to Database**
+   ```bash
+   npm run drizzle-kit push
+   ```
+   This command will:
+   - Apply the generated migrations to your database
+   - Create or update tables according to your schema
+   - Ensure your database structure matches your schema definition
 
-## Deploy on Vercel
+## Current Database Schema
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+The application currently has the following table structure:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Contact Messages Table
+
+- `id` (varchar, primary key)
+- `name` (varchar)
+- `email` (varchar)
+- `message` (text)
+- `createdAt` (timestamp)
+
+## Important Notes
+
+- Always backup your database before running migrations in production
+- Ensure your database credentials in the `.env` file are correct
+- The database port defaults to 3306 for MySQL
+- Make sure your database user has the necessary permissions to create and modify tables

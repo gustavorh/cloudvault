@@ -14,8 +14,9 @@ export default function CTA() {
             Ready to Get Started?
           </h2>
           <p className="text-xl text-gray-300 mb-10">
-            Join thousands of satisfied customers who trust CloudVault for their
-            hosting needs. Start your journey with us today.
+            Experience the power of enterprise-grade hosting with CloudVault.
+            Join our growing community of businesses that trust us for their
+            cloud infrastructure needs.
           </p>
           <div className="flex flex-col sm:flex-row gap-5 justify-center">
             <Link href="#" className="btn btn-primary">
