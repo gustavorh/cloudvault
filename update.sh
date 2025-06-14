@@ -1,8 +1,9 @@
 #!/bin/bash
 
 # Fetch latest changes from the repository.
-git pull
 echo "Fetching latest changes..."
+git pull
+
 
 # Re-build the application
 echo "Building the application"
